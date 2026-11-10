@@ -65,6 +65,10 @@ public_html/
 finaldatabase.sql               # Database schema and sample data
 ```
 
+## Demo
+
+[Watch the GrocerEase Demo](https://youtu.be/qZ1hE3aBnhg)
+
 ## Local setup
 
 1. Install and start **Apache** and **MySQL** using XAMPP.
