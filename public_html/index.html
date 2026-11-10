@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocerease - Your Grocery Delivery Solution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/default.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo" />
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="php/login/login.php">Products</a></li>
+                <li><a href="php/aboutus.php">About Us</a></li>
+                <li><a href="php/login/login.php">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="hero">
+        
+        <div class="content-container">
+            <h1>Your Groceries Delivered Fast</h1>
+            <div class="text-container">
+                <p>Enjoy the convenience of shopping from home with fresh groceries delivered right to your door.</p>
+                <a href="php/login/login.php" class="cta-btn">Shop Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="swipe">
+        <h2>Swipe Down For More</h2>
+    </div>    
+    <section id="products" class="info-section">
+        <h2>What We Offer</h2>
+        <div class="offerings">
+            <div class="offering-card">
+                <h3>Fast Delivery</h3>
+                <p>Get your groceries delivered to your door quickly, so you can spend more time doing what you love.</p>
+            </div>
+            <div class="offering-card">
+                <h3>Guaranteed Low Prices</h3>
+                <p>We ensure the best prices on all your favorite products, making grocery shopping more affordable.</p>
+            </div>
+            <div class="offering-card">
+                <h3>Fresh Quality</h3>
+                <p>All our products are sourced to guarantee freshness, from meats and produce to daily essentials.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section split-layout">
+        <div class="text-content">
+            <h2>Why Choose GrocerEase?</h2>
+            <p>We prioritize your convenience and satisfaction. Our platform is user-friendly, making grocery shopping easier than ever.</p>
+            <a href="php/aboutus.php" class="about-btn">Learn More About Us</a>
+        </div>
+        <img src="images/why chosoe.jpg" alt="Description of Image 1" class="image-placeholder">
+    </section>
+
+    <section class="info-section split-layout-reverse">
+        <div class="text-content">
+            <h2>Designed for Your Convenience</h2>
+            <p>Experience a user-friendly platform that makes grocery shopping a breeze—no crowded stores, no long lines!</p>
+        </div>
+        <img src="images/conveniibnce.jpg" alt="Description of Image 2" class="image-placeholder">
+    </section>
+
+    <section class="info-section">
+        <div class="image-dark">
+            <h2>Shop Easily Anytime, Anywhere</h2>
+            <p>With GrocerEase, you can order your groceries online or find our products at select local retailers.</p>
+        </div>
+    </section>
+    
+    <section class="info-section">
+        <h2>Our Commitment</h2>
+        <p>At GrocerEase, our mission is to deliver top-quality groceries quickly and efficiently, ensuring each shopping experience is smooth and tailored to your needs.</p>
+        <div class="image-place">
+            <img src=" images/commitment.jpg" alt="Description of Image 4" style="max-width: 100%; height: auto;">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h2>GrocerEase</h2>
+            <p>Fresh Finds, Fast Delivery</p>
+        </div>
+    </footer>
+
+</body>
+<script>
+    let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // Scrolling down
+        header.classList.add('shrink');
+    } else {
+        // Scrolling up
+        header.classList.remove('shrink');
+    }
+
+    lastScrollY = currentScrollY;
+});
+
+</script>
+</html>

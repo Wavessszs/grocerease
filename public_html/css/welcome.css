@@ -1,0 +1,446 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa; /* Soft light gray background for better contrast */
+    max-width: 100%;
+}
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.carousel-title {
+    display: flex;
+    flex-flow: row-reverse;
+    margin-right: 60px;
+    font-size: 20px; /* Optional: Adjust font size */
+}
+
+/* Product Carousel Styles */
+.product-carousel-container {
+    position: relative;
+    max-width: 100%;
+    padding: 5px;
+    background-color: #f5f5f5; /* Light gray background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    overflow: hidden;
+}
+
+.product-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for scrolling */
+}
+
+/* Product Card Styles */
+.product-card {
+    flex: 0 0 calc(20% - 10px); /* Adjust to 5 cards per view */
+    margin-right: 5px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease; /* Subtle hover effect */
+}
+
+.product-image-container {
+    position: relative; /* Important for discount photo overlay */
+    width: 100%;
+}
+
+/* Position the discount photo in the top-left corner */
+.discount-photo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    max-width: 20%; /* Adjust size as necessary */
+    max-height: 20%;
+    z-index: 4; /* Ensure it appears above the product image */
+    display: inline-block; /* Ensures the ::before element behaves properly */
+    vertical-align: middle;
+}
+
+/* Bookmark background */
+.discount-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffcc00; /* Bookmark background color */
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%); /* Creates bookmark shape */
+    z-index: 3; /* Places it behind the logo */
+    border-radius: 5px; /* Optional: soften the edges */
+    box-sizing: border-box; /* Ensures padding/margins are included */
+}
+
+.product-card:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced hover */
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px; /* Adjusted height */
+    object-fit: cover; /* Changed to cover for better fitting */
+    border-top-left-radius: 10px; /* Rounded top corners */
+    border-top-right-radius: 10px; /* Rounded top corners */
+}
+
+.product-card h3 {
+    font-size: 1em; /* Adjusted font size */
+    margin: 8px 0; /* Reduced margin */
+}
+
+.product-card p {
+    color: #555;
+    font-size: 0.9em; /* Adjusted font size */
+    padding: 0 8px; /* Reduced padding */
+    flex-grow: 1;
+}
+
+.price {
+    font-weight: bold;
+    color: #4CAF50; /* Green color for price */
+    font-size: 1em; /* Adjusted font size */
+    margin: 8px 0; /* Reduced margin */
+}
+
+/* Container for all categories */
+.categories {
+    display: flex;
+    gap: 50px; /* Reduced gap */
+    justify-content: center; /* Centers the categories horizontally */
+    flex-wrap: wrap;
+    margin: 20px 0; /* Spacing above and below categories */
+}
+
+/* Style for each category */
+.category {
+    text-align: center;
+    padding: 15px;
+    background-color: #f9f9f9; /* Light background for the category container */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for the category container */
+    border-radius: 10px;
+    transition: transform 0.2s ease; /* Adds a smooth hover effect */
+}
+
+/* Hover effect on category */
+.category:hover {
+    transform: translateY(-5px); /* Move the category up slightly on hover */
+}
+
+/* Style for circular images */
+.category img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image is cropped to fit inside the circle */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Shadow around the image */
+    transition: transform 0.2s ease; /* Adds a smooth hover effect */
+}
+
+/* Hover effect for images */
+.category img:hover {
+    transform: scale(1.05); /* Slight zoom-in effect on hover */
+}
+
+/* Style for category text */
+.category p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Remove underline from anchor tags */
+.category a {
+    text-decoration: none;
+    color: inherit; /* Keeps the original color of the text */
+}
+
+/* Navigation Buttons */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 8px; /* Reduced padding */
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker hover */
+}
+
+.nav-button.left {
+    left: 10px;
+}
+
+.nav-button.right {
+    right: 10px;
+}
+
+/* Quantity Selector */
+.quantity-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0; /* Reduced margin */
+}
+
+.quantity-selector button {
+    width: 25px; /* Adjusted width */
+    height: 25px; /* Adjusted height */
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    font-size: 16px; /* Adjusted font size */
+}
+
+.quantity-selector span {
+    margin: 0 8px; /* Reduced margin */
+    font-size: 0.9em; /* Adjusted font size */
+    width: 20px;
+    text-align: center;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    padding: 10px; /* Increased padding */
+    cursor: pointer;
+    width: 100%;
+    border-bottom-left-radius: 10px; /* Rounded bottom corners */
+    border-bottom-right-radius: 10px; /* Rounded bottom corners */
+    font-size: 0.9em; /* Adjusted font size */
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #45a049; /* Darker on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .product-card {
+        flex: 0 0 25%; /* Adjust to 4 cards per row */
+        margin-right: 2%;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-card {
+        flex: 0 0 33%; /* Adjust to 3 cards per row */
+        margin-right: 3%;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        flex: 0 0 50%; /* Adjust to 2 cards per row */
+        margin-right: 4%;
+    }
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 576px) {
+    /* Product Card adjustments to fit 2 cards per row */
+    .product-card {
+        flex: 0 0 48%; /* Make each card take roughly half the width */
+        margin-right: 2%; /* Add space between cards */
+        margin-bottom: 20px; /* Ensure there's space below each row */
+        padding: 10px; /* Add some padding for card content */
+    }
+
+    /* Carousel height adjustments */
+    .carousel {
+        height: 250px; /* Adjust height for smaller screens */
+    }
+
+    /* Ensure the carousel images fit properly */
+    .carousel-item img {
+        width: 100%; /* Ensure images scale properly */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Keep image layout intact */
+    }
+
+    /* Adjust add-to-cart button for smaller devices */
+    .add-to-cart {
+        font-size: 0.9em; /* Slightly smaller font for smaller screens */
+        padding: 8px; /* Maintain padding */
+    }
+
+    /* Adjust quantity selector buttons */
+    .quantity-selector button {
+        width: 30px; /* Increase button size for mobile */
+        height: 30px; /* Keep height in proportion */
+    }
+
+    /* Adjust quantity display */
+    .quantity-selector span {
+        font-size: 1em; /* Keep the font readable */
+        width: 30px; /* Ensure proper width */
+    }
+
+    /* Discount photo adjustments */
+    .discount-photo {
+        top: 5px; /* Adjust placement for small screens */
+        left: 5px; /* Adjust placement */
+        max-width: 25%; /* Adjust size for smaller screens */
+        max-height: 25%;
+    }
+
+    /* Bookmark background adjustments */
+    .discount-photo::before {
+        clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%); /* Adjust the bookmark shape */
+    }
+
+}.footer {
+    background-color: #218838; /* Dark fade at the top */
+    color: white;
+    padding: 40px 20px; /* Increased padding for a more spacious look */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    position: fixed;
+    z-index: 2; /* Ensures footer is above other content */
+    bottom: -100%; 
+    transition: bottom 1s ease;
+    width:100%;
+}
+
+.footer.visible {
+    bottom: 0; /* Slide into view */
+}
+
+/* Adjust footer content layout */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items at the start for better spacing */
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style for footer sections */
+.footer-section {
+    flex: 1; /* Flexbox for equal distribution */
+    margin-bottom: 20px; /* Increased bottom margin for spacing */
+}
+
+/* Header styling within footer */
+.footer-section h3 {
+    font-size: 18px; /* Increased font size for better readability */
+    margin-bottom: 10px;
+    font-weight: bold; /* Bold for emphasis */
+}
+
+/* Paragraph styling */
+.footer-section p {
+    font-size: 14px;
+    margin-bottom: 10px; /* Slightly increased margin */
+}
+
+/* List styling */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px; /* Consistent spacing */
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.footer-section ul li a:hover {
+    color: #f0f0f0; /* Lighter color on hover */
+}
+
+/* Styling for the footer bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px; /* Increased padding for space */
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Added a new section for social media icons */
+.footer-social {
+    margin-top: 20px; /* Space above the social links */
+}
+
+.footer-social a {
+    color: white; /* Icon color */
+    margin: 0 10px; /* Space between icons */
+    font-size: 20px; /* Icon size */
+}
+
+.footer-social a:hover {
+    color: #f0f0f0; /* Icon hover effect */
+}
+.spacelng{
+    height:300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
