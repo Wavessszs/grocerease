@@ -27,10 +27,23 @@ GrocerEase is a PHP and MySQL grocery ordering web application. It provides a cu
 ## Technology
 
 - **Backend:** PHP
-- **Database:** MySQL (PHP MySQLi)
+- **Database:** MySQL / MariaDB (PHP MySQLi)
 - **Frontend:** HTML, CSS, JavaScript
 - **Asynchronous interactions:** JavaScript and PHP endpoints using JSON / AJAX
 - **Local development environment:** XAMPP
+
+## Database schema
+
+The repository includes `finaldatabase.sql`, a phpMyAdmin SQL export containing the schema and sample records for these tables:
+
+| Table | Purpose |
+|---|---|
+| `items` | Product catalog, including EAN, category, stock, location, and distributor |
+| `users` | Customer, administrator, and courier accounts |
+| `orders` | Order details, customer delivery information, status, and courier assignment |
+| `order_items` | Products, quantities, and prices associated with each order |
+
+The dump defines primary keys, a unique EAN constraint on `items`, a unique username constraint on `users`, and foreign keys from orders to users and order items to orders and items.
 
 ## Project structure
 
@@ -48,24 +61,25 @@ public_html/
     │   ├── courier/            # Courier delivery workflow
     │   └── user/               # Storefront, product, cart, and checkout
     └── signup/                 # Account registration
+
+finaldatabase.sql               # Database schema and sample data
 ```
 
 ## Local setup
 
 1. Install and start **Apache** and **MySQL** using XAMPP.
-2. Clone this repository into the XAMPP web root (normally `C:\\xampp\\htdocs\\grocerease`).
-3. Create a MySQL database named `grocerease`.
-4. Configure the connection settings in `public_html/php/db_conn.php` for your local MySQL installation.
-5. Open the application through Apache, for example:
+2. Clone this repository into the XAMPP web root (normally `C:\xampp\htdocs\grocerease`).
+3. Open **phpMyAdmin** at `http://localhost/phpmyadmin`.
+4. Create a database named `grocerease`.
+5. Select the new database, choose **Import**, and import `finaldatabase.sql`.
+6. Check `public_html/php/db_conn.php` and set the connection values for your local MySQL installation. The database name should be `grocerease`.
+7. Open the application through Apache:
 
    `http://localhost/grocerease/public_html/`
-
-### Database note
-
-The repository currently does **not** include a SQL schema or database export. The application expects tables including `users`, `items`, `orders`, and `order_items`; a compatible database must be created and populated separately before the application can run fully.
 
 ## Development notes
 
 - The application uses PHP sessions for authentication state and the customer shopping cart.
 - Customer, administrator, and courier pages are organized in separate directories.
 - The database connection file contains local XAMPP defaults. Replace these with environment-appropriate settings when deploying outside a local development environment.
+- The SQL export includes account and order records. Before sharing or deploying the repository, ensure its sample data does not contain real users' personal information or reusable passwords.
